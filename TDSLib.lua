@@ -109,9 +109,9 @@ elseif game_state == "GAME" then
         start_gems = local_player.Gems.Value
         current_total_gems = start_gems
         current_level = local_player.Level.Value or 0
-        start_wins = local_player.Wins.Value or 0
+        start_wins = local_player:waitforchild("Wins").Value or 0
         current_total_wins = start_wins
-        start_loses = local_player.Loses.Value or 0
+        start_loses = local_player:WaitForChild("Loses").Value or 0
         current_total_loses = start_loses
     end)
 end

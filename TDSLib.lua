@@ -86,7 +86,7 @@ local upgrade_history = {}
 shared.TDS_Table = TDS
 
 -- // currency tracking
-local start_coins, current_total_coins, start_gems, current_total_gems, start_level = 0, 0, 0, 0, 0
+local start_coins, current_total_coins, start_gems, current_total_gems, start_level, wins, losses = 0, 0, 0, 0, 0, 0, 0
 local current_level = 0
 
 if game_state == "LOBBY" then
@@ -108,8 +108,11 @@ elseif game_state == "GAME" then
         current_total_coins = start_coins
         start_gems = local_player.Gems.Value
         current_total_gems = start_gems
-        start_level = local_player.Level.Value or 0
-        current_level = start_level
+        current_level = local_player.Level.Value or 0
+        start_wins = local_player.Wins.Value or 0
+        current_total_wins = start_wins
+        start_loses = local_player.Loses.Value or 0
+        current_total_loses = start_loses
     end)
 end
 
@@ -407,7 +410,7 @@ local function log_match_start()
                     inline = true
                 },
                 {
-                    name = "💎 Starting Level",
+                    name = "🤑 Starting Level",
                     value = "```Level " .. tostring(start_level) .. "```",
                     inline = true
                 },
@@ -483,9 +486,29 @@ if hasSentLobbyWebhook then
             color = 16776960,
             fields = {
                 {
-                    name = "📊 Battlepass Level",
-                    value = "```Level " .. battlepassLevel .. "```",
-                    inline = false
+                    name = "🪙 Starting Coins",
+                    value = "```" .. tostring(start_coins) .. " Coins```",
+                    inline = true
+                },
+                {
+                    name = "💎 Starting Gems",
+                    value = "```" .. tostring(start_gems) .. " Gems```",
+                    inline = true
+                },
+                {
+                    name = "🤑 Starting Level",
+                    value = "```Level " .. tostring(start_level) .. "```",
+                    inline = true
+                },
+                {
+                    name = "🏁 Wins",
+                    value = "```" .. tostring(start_wins) .. " Wins```",
+                    inline = true
+                },
+                {
+                    name = "🔴 Loses",
+                    value = "```" .. tostring(start_loses) .. " Loses```",
+                    inline = true
                 },
                 {
                     name = "🎮 Game Status",

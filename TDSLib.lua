@@ -108,8 +108,8 @@ elseif game_state == "GAME" then
         current_total_coins = start_coins
         start_gems = local_player.Gems.Value
         current_total_gems = start_gems
-        current_level = local_player.Level.Value or 0
-        current_xp = local_player.XP.Value or 0
+        start_level = local_player.Level.Value or 0
+        current_level = start_level
     end)
 end
 
@@ -407,7 +407,7 @@ local function log_match_start()
                     inline = true
                 },
                 {
-                    name = "🤑 Starting Level",
+                    name = "💎 Starting Level",
                     value = "```Level " .. tostring(start_level) .. "```",
                     inline = true
                 },

@@ -86,7 +86,7 @@ local upgrade_history = {}
 shared.TDS_Table = TDS
 
 -- // currency tracking
-local start_coins, current_total_coins, start_gems, current_total_gems, start_level, wins, losses = 0, 0, 0, 0, 0, 0, 0
+local start_coins, current_total_coins, start_gems, current_total_gems, start_level, wins, loses = 0, 0, 0, 0, 0, 0, 0
 local current_level = 0
 
 if game_state == "LOBBY" then

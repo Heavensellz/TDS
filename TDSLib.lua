@@ -415,6 +415,16 @@ local function log_match_start()
                     inline = true
                 },
                 {
+                    name = "🏁 Wins",
+                    value = "```" .. tostring(start_wins) .. " Wins```",
+                    inline = true
+                },
+                {
+                    name = "🔴 Loses",
+                    value = "```" .. tostring(start_loses) .. " Loses```",
+                    inline = true
+                },
+                {
                     name = "Status",
                     value = "🟢 Running Script",
                     inline = false
